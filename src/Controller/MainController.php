@@ -16,7 +16,7 @@ class MainController extends AbstractController
 
         $repository = $em->getRepository(Concours::class);
         /** @var Concours $concours */
-        $concours = $repository->findAll();
+        $concours = $repository->findBy(['isActive'=>true]);
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController', 'concours'=>$concours
         ]);

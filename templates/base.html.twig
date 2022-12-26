@@ -27,10 +27,24 @@
                 <li class="nav-item">
                     <a class="nav-link p-3" href="{{ path('app_main')}}">Home</a>
                 </li>
+                 {% if app.user %}
+                 {% for role in app.user.roles %}
+                     {% if role == "ROLE_ADMIN" %}
                 <li class="nav-item">
-                    <a class="nav-link p-3" href="">Autres</a>
+                    <a class="nav-link p-3" href="{{ path('app_anciens_concours')}}">Anciens Concours</a>
                 </li>
-              
+               {# {% endif %} #}
+
+                {% elseif role == "ROLE_USER" %}
+                <li class="nav-item">
+                    <a class="nav-link p-3" href="{{ path('app_resultat')}}/?id_user={{ app.user.id }}">Resultats</a>
+                </li>
+               {% endif %}
+
+                {% endfor %}
+                 {% endif %}
+
+
             </ul>
         </div>
            {% if app.user %}

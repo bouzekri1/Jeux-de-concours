@@ -25,7 +25,7 @@ class ConcoursController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            $concour->setIsActive(true);
             $entityManager->persist($concour);
             $entityManager->flush();
         }

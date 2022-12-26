@@ -22,6 +22,18 @@ class Concours
     #[ORM\Column(nullable: true)]
     private ?float $rewords = null;
 
+    #[ORM\Column(nullable: false)]
+    private ?bool $isActive = null;
+
+      public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+      public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
+        return $this;
+    }
     public function getId(): ?int
     {
         return $this->id;

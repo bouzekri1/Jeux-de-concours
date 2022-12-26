@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Concours;
 use App\Entity\Participants;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
@@ -34,6 +35,8 @@ class TirageGagnantController extends AbstractController
         $id_concr = $_POST['id_concr'];
         $repository = $entityManager->getRepository(Participants::class);
         $particippant= $repository->findBy(['id_concours' => $id_concr]);
+
+       
         if($nb_gagnant>count($particippant))
         {
             return $this->render('tirage_gagnant/index.html.twig', [
@@ -55,6 +58,18 @@ class TirageGagnantController extends AbstractController
             $entityManager->flush();
             
         }
+
+        $repository  = $entityManager->getRepository(Concours::class);
+        $concour=  $repository->findBy(['id' => $id_concr]);
+        foreach($concour as $conc)
+        {
+            $conc->setIsActive(false);
+            $entityManager->persist($conc);
+            $entityManager->flush();
+
+        }
+        
+        
         
         return $this->render('tirage_gagnant/gagnants.html.twig', [
         'participants'=>$participants_gagnants
