@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Concours;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,5 +22,14 @@ class MainController extends AbstractController
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController', 'concours'=>$concours
         ]);
+    }
+
+    #[Route('/api/v1/joueurs', name: 'app_joueurs')]
+    public function getAllPlayers(EntityManagerInterface $em): JsonResponse
+    {
+
+        $repository = $em->getRepository(User::class);
+        $users = $repository->findAll();
+        return $this->json($users);
     }
 }
