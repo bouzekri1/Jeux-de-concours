@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Concours;
 use App\Entity\Participants;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,8 +20,16 @@ class ResultatController extends AbstractController
         $id_user = $_GET['id_user'];
         $repository = $entityManager->getRepository(Participants::class);
         $concours = $repository->findBy(['id_user'=>$id_user, 'isGagnant'=>true]);
+
+        $concoursParticiper = [];
+        foreach($concours as $concour){
+            $repository = $entityManager->getRepository(Concours::class);
+            $concours = $repository->findOneBy(['id'=>$concour->getIdConcours()]);
+            array_push($concoursParticiper, $concours);
+        }
+        // dd($concoursParticiper);
         return $this->render('resultat/index.html.twig', [
-            'controller_name' => 'ResultatController', 'concours'=>$concours
+            'controller_name' => 'ResultatController', 'concoursParticiper'=>$concoursParticiper
         ]);
     }
 }
