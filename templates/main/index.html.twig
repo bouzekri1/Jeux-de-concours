@@ -11,7 +11,13 @@
     <div class="col-md-10 mx-auto mt-5">
 <div class="card border-success">
   <div class="card-header">
-  <a href="{{ path('app_concours')}}" class="btn btn-success" > + </a>
+  {% for role in app.user.roles %}
+{% if role != "ROLE_ADMIN" %}
+  {% else %}
+<a href="{{ path('app_concours')}}" class="btn btn-success" > + </a>
+
+{% endif %}
+{% endfor %}
   Tous les Concours
   </div>
   <div class="card-body">
