@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!
+
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+    <div class="col-md-10 mx-auto mt-5">
+<div class="card border-success">
+  <div class="card-header">
+  {% for role in app.user.roles %}
+{% if role != "ROLE_ADMIN" %}
+  {% else %}
+<a href="{{ path('app_concours')}}" class="btn btn-success" > + </a>
+
+{% endif %}
+{% endfor %}
+  Tous les Concours
+  </div>
+  <div class="card-body">
+    <h4 class="card-title center">Concours</h4>
+   <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>rewords</th>
+                    <th>Opertaions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for value in concours %}
+                <tr>
+                    <td scope="row">{{ value.id }}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.description }}</td>
+                    <td>{{ value.rewords }}</td>
+                    <td>
+                     {% for role in app.user.roles %}
+                     {% if role == "ROLE_ADMIN" %}
+
+                    <a href="{{ path('app_tirage_gagnant') }}/?id_concr={{ value.id }}" class="btn btn-primary">Tirer Gagnant </a>
+                    {% endif %}
+                    {% if role == "ROLE_USER" %}
+                    <a href="{{ path('app_participation') }}/?id_concr={{ value.id }}&id_user={{ app.user.id }}" class="btn btn-primary">Participer </a>
+                    {% endif %}
+                      {% endfor %}
+                     </td>
+                </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+  </div>
+</div>
+        
+        
+    </div>
+</div>
+    
+</div>
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+
+    
+</div>
+{% endblock %}

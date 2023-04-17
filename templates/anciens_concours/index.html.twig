@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anciens Concours
+
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+    <div class="col-md-10 mx-auto mt-5">
+<div class="card border-success">
+  <div class="card-header">
+  Anciens Concours
+  </div>
+  <div class="card-body">
+    <h4 class="card-title center">Concours</h4>
+   <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>rewords</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for value in concours %}
+                <tr>
+                    <td scope="row">{{ value.id }}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.description }}</td>
+                    <td>{{ value.rewords }}</td>
+                  
+                </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+  </div>
+</div>
+        
+        
+    </div>
+</div>
+    
+</div>
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+
+    
+</div>
+{% endblock %}

@@ -1,0 +1,177 @@
+body {
+    font-family: sans-serif;
+    background-color: #F8F8F8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #086116;
+    color: #FFF;
+    padding: 1em;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5rem 0;
+    background-color: #f2f2f2;
+}
+
+.feature {
+    text-align: center;
+    margin: 0 2rem;
+}
+
+.feature h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.feature p {
+    font-size: 1.2rem;
+
+}
+
+.banner {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-content {
+    text-align: center;
+    color: #453e3e;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    white-space: pre-line;
+}
+
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+.container-img {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 278px;
+    height: 230px;
+    background-color: white;
+    transition: 0.5s;
+    margin: 50px;
+}
+
+.card .img {
+    width: 260px;
+    height: 260px;
+    position: relative;
+    z-index: 1;
+    top: -50px;
+    left: 20px;
+}
+
+.card .img img {
+    width: 94%;
+    height: 91%;
+}
+
+.card .content {
+    width: 100%;
+    text-align: center;
+    padding: 2px;
+    transform: translateY(-150px);
+    opacity: 0;
+}
+
+.card:hover {
+    height: 292px;
+}
+
+.card:hover .content {
+    opacity: 1;
+    transform: translateY(-40px);
+    transition: 0.5s;
+}
+
+
+
+

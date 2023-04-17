@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> #}
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+
+      
+
+   <nav  class="navbar navbar-expand-lg navbar-light bg-success p-0">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" width="100%" id="navbarNav">
+            <ul class="navbar-nav" style="height: 4rem;">
+                <li class="nav-item">
+                    <a class="nav-link p-3" href="{{ path('app_home')}}">Home</a>
+                </li>
+                 {% if app.user %}
+                 {% for role in app.user.roles %}
+                     {% if role == "ROLE_ADMIN" %}
+                <li class="nav-item">
+                    <a class="nav-link p-3" href="{{ path('app_anciens_concours')}}">Anciens Concours</a>
+                </li>
+               {# {% endif %} #}
+
+                {% elseif role == "ROLE_USER" %}
+                <li class="nav-item">
+                    <a class="nav-link p-3" href="{{ path('app_resultat')}}/?id_user={{ app.user.id }}">Resultats</a>
+                </li>
+               {% endif %}
+
+                {% endfor %}
+                 {% endif %}
+
+
+            </ul>
+        </div>
+           {% if app.user %}
+ <a class="nav-item mr-3 btn btn-success p-3" href="{{ path('app_logout') }}" >Logout</a>
+ {% else %}
+    <a class="nav-item mr-3 btn btn-success p-3" href="{{ path('app_login') }}" >Login</a>
+        <a class="nav-item mr-3 btn btn-success p-3" href="{{ path('app_register') }}" >Sing Up</a>
+
+ {% endif %}
+        
+    </nav>
+
+
+        {% block body %}
+       
+        {% endblock %}
+
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

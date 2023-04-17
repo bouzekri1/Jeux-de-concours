@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tirage
+
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+    <div class="col-md-10 mx-auto mt-5">
+<div class="card border-success">
+  <div class="card-header">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+  lancer le tirage
+</button>  Tous les Participants
+  </div>
+  <div class="card-body">
+    <h4 class="card-title center">Participants</h4>
+
+ {% if errorMessage != null %}
+    <div class="alert alert-danger" role="alert">
+        <strong>{{errorMessage}}</strong>
+    </div>
+ {% endif %}
+   <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <th>phoneNumber</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for value in participants %}
+                <tr>
+                    <td scope="row">{{ value.id }}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.lastname }}</td>
+                    <td>{{ value.phonenumber }}</td>
+                    
+                </tr>
+      {% endfor %}
+
+            </tbody>
+        </table>
+  </div>
+</div>
+        
+        
+    </div>
+</div>
+    
+</div>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Tirage</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <form method="post" action="{{path('app_tirage_result')}}" >
+      <div class="modal-body">
+      <div class="form-group">
+      <label>Nombre ds gagnant</label>
+        <input type="number"
+          class="form-control" name="nb_gagnant" id="nb_gagnant" aria-describedby="helpId" placeholder="">
+          <input type="hidden"
+          class="form-control" name="id_concr"  value="{{id_concr}}" id="nb_gagnant" aria-describedby="helpId" placeholder="">
+      </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-success">lancer</button>
+      </div>
+</form>
+    </div>
+      
+  </div>
+</div>
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+
+    
+</div>
+{% endblock %}

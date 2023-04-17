@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Jeux de concours</title>
+  {% block stylesheets %}
+        <link href="{{ asset('styles/home.css') }}" type="text/css" rel="stylesheet" />
+  {% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/script.js') }}"></script>
+  {% endblock %}
+
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+        <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Bienvenue sur GiveAway!</h1>
+  </main>
+
+    <h2> Nos fameux organisateurs </h2>
+
+  <section>
+
+
+
+  <div class="container-img">
+        <div class="card">
+            <div class="img">
+              <img src="{{ asset('img/11.png') }}" alt="Image 1">
+            </div>
+            <div class="content">
+                <h2>Apple</h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="{{ asset('img/13.png') }}" alt="Image 2">
+            </div>
+            <div class="content">
+                <h2>Xiaomi</h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="{{ asset('img/12.jpg') }}" alt="Image 3">
+            </div>
+            <div class="content">
+                <h2>Zara</h2>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img">
+                <img src="{{ asset('img/10.png') }}" alt="Image 3">
+            </div>
+            <div class="content">
+                <h2>Voyage privé</h2>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+
+   <!-- Banner Section -->
+  <section class="banner">
+    <div class="banner-content">
+      <h1>Jouez aux jeux de concours<br> et gagnez des prix fabuleux!</h1>
+      <p>Inscrivez-vous maintenant pour participer à nos jeux et tenter de remporter des prix incroyables.
+       Nous avons des concours pour tous les goûts, alors n'hésitez pas à parcourir notre sélection.</p>
+      <a href="#" class="button">S'inscrire</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature">
+      <h2>Jeux pour tous les goûts</h2>
+      <p>Nous avons une grande sélection de jeux de concours pour vous divertir et vous offrir la chance de gagner des prix incroyables.</p>
+    </div>
+    <div class="feature">
+      <h2>Prix incroyables</h2>
+      <p>Nous offrons des prix incroyables à nos gagnants, allant des cartes-cadeaux aux voyages en passant par les gadgets technologiques les plus récents.</p>
+    </div>
+    <div class="feature">
+      <h2>Inscription facile</h2>
+      <p>L'inscription est rapide et facile. Il vous suffit de remplir notre formulaire d'inscription en ligne et de commencer à jouer.</p>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2023 Jeux de concours</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+  /*
+    <div class="banner-container-img">
+      <div class="clients">
+
+        <img src="{{ asset('img/1.jpg') }}" alt="Image 1">
+        <img src="{{ asset('img/1.jpg') }}" alt="Image 1">
+        <img src="{{ asset('img/2.jpg') }}" alt="Image 2">
+        <img src="{{ asset('img/3.jpg') }}"alt="Image 3">
+
+      </div>
+
+    </div>
+  

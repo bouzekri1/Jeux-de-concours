@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConcoursController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+    <div class="col-md-10 mx-auto mt-5">
+<div class="card border-success">
+  <div class="card-header">
+  Ajouter Nouveau Concours
+  </div>
+  <div class="card-body">
+ 
+
+{{ form_start(concour_form) }}
+{{ form_row(concour_form.name) }}
+
+{{ form_row(concour_form.description) }}
+
+{{ form_row(concour_form.rewords) }}
+
+{{ form_row(concour_form.valeur) }}
+
+
+ <button type="submit" class="btn btn-success">Register</button>
+    {{ form_end(concour_form) }}
+                   
+   
+
+  </div>
+</div>
+        
+        
+    </div>
+</div>
+    
+</div>
+
+{% endblock %}
