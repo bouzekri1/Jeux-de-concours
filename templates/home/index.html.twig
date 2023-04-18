@@ -34,7 +34,7 @@
   <div class="container-img">
         <div class="card">
             <div class="img">
-              <img src="{{ asset('img/11.png') }}" alt="Image 1">
+              <img src="{{ asset('img/apple.png') }}" alt="Image 1">
             </div>
             <div class="content">
                 <h2>Apple</h2>
@@ -42,7 +42,7 @@
         </div>
         <div class="card">
             <div class="img">
-                <img src="{{ asset('img/13.png') }}" alt="Image 2">
+                <img src="{{ asset('img/xiaomi.png') }}" alt="Image 2">
             </div>
             <div class="content">
                 <h2>Xiaomi</h2>
@@ -59,7 +59,7 @@
 
         <div class="card">
             <div class="img">
-                <img src="{{ asset('img/10.png') }}" alt="Image 3">
+                <img src="{{ asset('img/vp.png') }}" alt="Image 3">
             </div>
             <div class="content">
                 <h2>Voyage privé</h2>
@@ -76,7 +76,7 @@
       <h1>Jouez aux jeux de concours<br> et gagnez des prix fabuleux!</h1>
       <p>Inscrivez-vous maintenant pour participer à nos jeux et tenter de remporter des prix incroyables.
        Nous avons des concours pour tous les goûts, alors n'hésitez pas à parcourir notre sélection.</p>
-      <a href="#" class="button">S'inscrire</a>
+      <a href="{{ path('app_liste_concours') }}" class="button">Concours disponibles</a>
     </div>
   </section>
 

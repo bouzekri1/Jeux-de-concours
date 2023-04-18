@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des concours{% endblock %}    
+
+  {% block stylesheets %}
+        <link href="{{ asset('styles/liste_concours.css') }}" type="text/css" rel="stylesheet" />
+  
+
+{% endblock %}
+
+{% block body %}
+
+<section>
+    <div class="message">
+        <h2>Créer votre votre compte pour participer à un concours, ou créer un</h2>
+    </div>
+    <div class="container">
+    <a href="{{ path('app_register') }}" class="button">S'inscrire</a>
+    </div>
+
+</section>
+<div class="container">
+<div class="row">
+    <div class="col-md-10 mx-auto mt-5">
+<div class="card border-success">
+  <div class="card-header">
+  
+  Tous les Concours
+  </div>
+  <div class="card-body">
+    <h4 class="card-title center">Concours</h4>
+   <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>rewords</th>
+                    <th>Description</th>
+                    <th>Valeur</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for value in concours %}
+                <tr>
+                    <td scope="row">{{ value.id }}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.rewords }}</td>
+                    <td>{{ value.description }}</td>
+                    <td>{{ value.valeur }}</td>
+                </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+  </div>
+</div>
+        
+        
+    </div>
+</div>
+    
+</div>
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+
+    
+</div>
+{% endblock %}

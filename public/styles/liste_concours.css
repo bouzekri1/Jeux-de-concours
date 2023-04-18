@@ -1,0 +1,25 @@
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+section{
+    text-align: center;
+}
+
+
+h2{
+    margin-top: 49px;
+    font-size: larger;
+}

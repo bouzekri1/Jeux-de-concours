@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230416141857 extends AbstractMigration
+final class Version20230418180604 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -29,4 +29,3 @@ final class Version20230416141857 extends AbstractMigration
         $this->addSql('ALTER TABLE concours DROP valeur, CHANGE rewords rewords DOUBLE PRECISION DEFAULT NULL');
     }
 }
-
