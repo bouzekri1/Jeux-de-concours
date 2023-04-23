@@ -1,47 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ParticipationController!{% endblock %}
+{% block title %}Register{% endblock %}
 
-
-{% block stylesheets %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-{% endblock %}
-
+  {% block stylesheets %}
+        <link href="{{ asset('styles/register.css') }}" type="text/css" rel="stylesheet" />
+  {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    . 
-</style>
+     
+
+ {{ form_start(participation_form, {'attr': {'class': 'form-signup'}})  }}
 
 
-
-
-<div class="container">
-<div class="row">
-<div class="col-md-5 mx-auto">
-
-
+  {{ form_row(participation_form.name, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Name'}}) }}
  
-{{ form_start(participation_form) }}
-{{ form_row(participation_form.name) }}
-{{ form_row(participation_form.lastname) }}
+    {{ form_row(participation_form.lastname, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Last Name'}})}}
 
-{{ form_row(participation_form.phonenumber) }}
- 
-
+   <div class="form-roles">
+    {{ form_row(participation_form.phonenumber, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Phone number'}}) }}
+  </div>
 
 
 {{ form_row(participation_form.id_user,  { 'attr':{'value': id_user } })  }} 
 {{ form_row(participation_form.id_concours,  { 'attr':{'value':id_concr} })  }}  
 
+<div class="form-group">
+    <button type="submit" class="btn btn-primary">Participer</button>
+  </div>
 
-<button type="submit" class="btn btn-success">Register</button>
-    {{ form_end(participation_form) }}
 
-</div>
-</div>
-</div>
 
+    
 {% endblock %}
