@@ -15,6 +15,7 @@
 {% if role != "ROLE_ADMIN" %}
   {% else %}
 <a href="{{ path('app_concours')}}" class="btn btn-success" > + </a>
+<a href="{{ path('app_joueurs') }}" class="btn btn-primary">Extraire les données des joueur </a> <br/>
 
 {% endif %}
 {% endfor %}
@@ -44,6 +45,7 @@
                      {% if role == "ROLE_ADMIN" %}
 
                     <a href="{{ path('app_tirage_gagnant') }}/?id_concr={{ value.id }}" class="btn btn-primary">Tirer Gagnant </a>
+                    
                     {% endif %}
                     {% if role == "ROLE_USER" %}
                     <a href="{{ path('app_participation') }}/?id_concr={{ value.id }}&id_user={{ app.user.id }}" class="btn btn-primary">Participer </a>

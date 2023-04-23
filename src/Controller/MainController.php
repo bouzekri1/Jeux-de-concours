@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Concours;
 use App\Entity\User;
+use App\Entity\Participants;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -12,6 +13,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+    private EntityManagerInterface $entityManager;
+    public function __construct(EntityManagerInterface $entityManager){
+    $this->entityManager = $entityManager;
+    }
     #[Route('/main', name: 'app_main')]
     public function index(EntityManagerInterface $em): Response
     {
@@ -24,12 +29,30 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/api/v1/joueurs', name: 'app_joueurs')]
-    public function getAllPlayers(EntityManagerInterface $em): JsonResponse
-    {
+    #[Route('/api/users', name: 'app_joueurs')]
+    public function getUsers(){
+    // Vérifiez que l'utilisateur est un administrateur
+    $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-        $repository = $em->getRepository(User::class);
-        $users = $repository->findAll();
-        return $this->json($users);
+    // Extrayez les données des utilisateurs à partir de la base de données
+    $joueurs = $this->entityManager->getRepository(Participants::class)->findAll();
+
+    // Créez un tableau contenant les données à renvoyer en format JSON
+    $data = [];
+    foreach ($joueurs as $Participants) {
+        $data[] = [
+            'id' => $Participants->getId(),
+            'name' => $Participants->getName(),
+            'last name' => $Participants->getLastname(),
+            'phone number' => $Participants->getPhonenumber(),
+            'id du concours' => $Participants->getIdConcours(),
+            'est gagnant' => $Participants->getIsGagnant(),
+
+
+        ];
     }
+
+    // Renvoyez les données en format JSON
+    return new JsonResponse($data);
+}
 }
