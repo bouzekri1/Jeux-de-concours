@@ -1,0 +1,46 @@
+/* Personnalisation du formulaire */
+.form-signup {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Personnalisation des champs de formulaire */
+.form-control {
+    height: 45px;
+    font-size: 16px;
+    color: #555;
+    border-radius: 5px;
+}
+
+.form-user {
+    height: 45px;
+    font-size: 16px;
+    color: #555;
+    border-radius: 5px;
+}
+
+.form-terms{
+    margin-top: 10px;
+}
+
+
+.required{
+    margin-right: 30px;
+}
+
+/* Personnalisation du bouton */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    margin-top: 24px;
+        margin-left: 127px;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}

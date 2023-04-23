@@ -2,43 +2,33 @@
 
 {% block title %}Register{% endblock %}
 
-
+  {% block stylesheets %}
+        <link href="{{ asset('styles/register.css') }}" type="text/css" rel="stylesheet" />
+  {% endblock %}
 
 {% block body %}
+     
 
-<div class="container">
-<div class="row">
-<div class="col-md-8 mx-auto">
-<h1 class="h3 mb-3 font-weight-normal"> Register</h1>
- {{ form_start(registrationForm) }}
-<table class="table">
-  
-    <tbody>
-     <tr>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td></td>
-      </tr>
-        <tr>
-            <td>{{ form_row(registrationForm.email) }}</td>
-            <td>{{ form_row(registrationForm.plainPassword, {
-    label: 'Password'
-}) }}</td>
-            <td>{{ form_row(registrationForm.agreeTerms) }}</td>
-            <td>
-             <button class="btn btn-lg btn-success btn-lg btn-block mt-2" type="submit">
-Register    </button>
-            </td>
-        </tr>
-        
-    </tbody>
-</table>
+ {{ form_start(registrationForm, {'attr': {'class': 'form-signup'}})  }}
 
+
+  {{ form_row(registrationForm.email, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Adresse e-mail'}}) }}
  
-{{ form_end(registrationForm) }}
-</div>
-</div>
-</div>
+    {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Mot de passe'}})}}
+
+   <div class="form-roles">
+    {{ form_row(registrationForm.roles, {'attr': {'class': 'form-user'}}) }}
+  </div>
+
+<div class="form-terms">
+    {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'form-terms'}}) }}
+  </div>
+
+<div class="form-group">
+    <button type="submit" class="btn btn-primary">S'inscrire</button>
+  </div>
+
+
+
     
 {% endblock %}
