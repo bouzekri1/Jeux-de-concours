@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Participation{% endblock %}
 
   {% block stylesheets %}
         <link href="{{ asset('styles/register.css') }}" type="text/css" rel="stylesheet" />
@@ -26,7 +26,10 @@
 
 <div class="form-group">
     <button type="submit" class="btn btn-primary">Participer</button>
+        {{ form_end(participation_form) }}
+
   </div>
+
 
 
 

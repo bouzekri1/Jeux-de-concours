@@ -5,6 +5,14 @@
 
 {% endblock %}
 
+
+  {% block stylesheets %}
+        <link href="{{ asset('styles/main.css') }}" type="text/css" rel="stylesheet" />
+  {% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/main.js') }}"></script>
+  {% endblock %}
+
 {% block body %}
 <div class="container">
 <div class="row">
@@ -70,8 +78,10 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div>
+{% for message in app.session.flashbag.get('error') %}
+    <div class="flash-error">
+        {{ message }}
+    </div>
+{% endfor %}
 
-    
-</div>
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block body %}
 <div class="container">
 <div class="row">
-    <div class="col-md-10 mx-auto mt-5">
+    <div class="col-md-6 mx-auto mt-5">
 <div class="card border-success">
   <div class="card-header">
   Ajouter Nouveau Concours
@@ -13,14 +13,15 @@
   <div class="card-body">
  
 
-{{ form_start(concour_form) }}
-{{ form_row(concour_form.name) }}
+{{ form_start(concour_form, {'attr': {'class': 'form-signup'}}) }}
 
-{{ form_row(concour_form.description) }}
+{{ form_row(concour_form.name, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Nom du concour'}}) }}
 
-{{ form_row(concour_form.rewords) }}
+{{ form_row(concour_form.description, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Brève description'}}) }}
 
-{{ form_row(concour_form.valeur) }}
+{{ form_row(concour_form.rewords, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Lot(s)'}}) }}
+
+{{ form_row(concour_form.valeur, {'attr': {'class': 'form-control mb-2', 'placeholder': 'Valeur en euros'}}) }}
 
 
  <button type="submit" class="btn btn-success">Register</button>
