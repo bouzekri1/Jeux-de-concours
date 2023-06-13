@@ -34,7 +34,10 @@
                      {% if role == "ROLE_ADMIN" %}
                 <li class="nav-item">
                     <a class="nav-link p-3" href="{{ path('app_anciens_concours')}}">Anciens Concours</a>
+
                 </li>
+                                    <a class="nav-link p-3" href="{{ path('app_main')}}">Menu Concours</a>
+
                {# {% endif %} #}
 
                 {% elseif role == "ROLE_USER" %}

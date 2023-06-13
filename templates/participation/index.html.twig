@@ -5,7 +5,9 @@
   {% block stylesheets %}
         <link href="{{ asset('styles/register.css') }}" type="text/css" rel="stylesheet" />
   {% endblock %}
-
+{% block javascripts %}
+    <script src="{{ asset('js/participation.js') }}"></script>
+  {% endblock %}
 {% block body %}
      
 
@@ -25,7 +27,7 @@
 {{ form_row(participation_form.id_concours,  { 'attr':{'value':id_concr} })  }}  
 
 <div class="form-group">
-    <button type="submit" class="btn btn-primary">Participer</button>
+    <button type="submit" class="btn btn-primary" id="myButton">Participer</button>
         {{ form_end(participation_form) }}
 
   </div>

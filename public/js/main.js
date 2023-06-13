@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     flashMessage.addEventListener('mouseout', function () {
-        flashMessage.classList.remove('flash-ierror-hover');
+        flashMessage.classList.remove('flash-error-hover');
     });
         flashMessage.addEventListener('click', function () {
             flashMessage.style.display = 'none';
